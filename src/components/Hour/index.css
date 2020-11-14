@@ -1,0 +1,35 @@
+.hour {
+  width: 100%;
+  height: 61px;
+  border-bottom: 1px solid #cbcbcb;
+  position: relative;
+}
+
+.hour::before {
+  content: attr(formatted-hour);
+  font-size: 16px;
+  position: relative;
+  left: -79px;
+  top: -9px;
+}
+
+.hour::after {
+  content: attr(ampm);
+  font-size: 12px;
+  position: absolute;
+  color: #a4a4a4;
+  text-transform: lowercase;
+  top: -6px;
+  left: -30px;
+}
+
+.hour .half {
+  color: #a4a4a4;
+  font-size: 12px;
+  position: absolute;
+  left: 0px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0 auto -43px;
+  height: 13px;
+}
