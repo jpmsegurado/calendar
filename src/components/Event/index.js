@@ -6,9 +6,14 @@ const Event = ({ name, start, end }) => {
   const startDate = moment(start);
   const endDate = moment(end);
   const length = endDate.diff(startDate, 'hours');
-  const height = length * 60;
+  const hourHeight = 60;
+  const height = length * hourHeight;
+  const minutesInHour = 60;
+  const startMinutes = startDate.get('minutes');
+  const top = hourHeight * (startMinutes / minutesInHour);
+
   return (
-    <div className="event" style={{ height }}>
+    <div className="event" style={{ height, top }}>
       { name }
     </div>
   )
