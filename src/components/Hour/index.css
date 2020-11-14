@@ -3,6 +3,8 @@
   height: 61px;
   border-bottom: 1px solid #cbcbcb;
   position: relative;
+  padding: 0 30px;
+  box-sizing: border-box;
 }
 
 .hour::before {
