@@ -1,9 +1,10 @@
 .hour {
-  height: 60px;
+  height: 76px;
   border-bottom: 1px solid #cbcbcb;
   position: relative;
   padding: 0 30px;
   box-sizing: border-box;
+  display: flex;
 }
 
 .hour::before {

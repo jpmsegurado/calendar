@@ -12,10 +12,19 @@ const getEventsFromStartToEnd = (start, end, events) => {
 };
 
 const formatEvents = (events, start) => {
-  return events.map((event) => ({
-    name: event.name,
-    start: moment(start).add('minutes', event.start).toDate(),
-    end: moment(start).add('minutes', event.end).toDate(),
+  const formattedEvents = events.map((event) => {
+    const newEvent = {
+      name: event.name,
+      start: moment(start).add('minutes', event.start).toDate(),
+      end: moment(start).add('minutes', event.end).toDate(),
+    }
+
+    return newEvent;
+  });
+
+  return formattedEvents.map((event) => ({
+    ...event,
+    conflicting: isConflictingEvent(event, formattedEvents)
   }));
 }
 
@@ -35,6 +44,19 @@ const createHourList = (start, end, events) => {
   }
 
   return hours;
+}
+
+const isConflictingEvent = (event, events) => {
+  const filteredEvents = events.filter(e => e.name !== event.name);
+  const start = moment(event.start);
+  const end = moment(event.end);
+
+  return filteredEvents.filter((filteredEvent) => {
+    const eventStart = moment(filteredEvent.start);
+    const eventEnd = moment(filteredEvent.end);
+    const condition = start.isBetween(eventStart, eventEnd) || end.isBetween(eventStart, eventEnd) || eventStart.isSame(start) || eventEnd.isSame(start);
+    return condition;
+  }).length > 0;
 }
 
 const Calendar = ({ events }) => {
