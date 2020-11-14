@@ -12,7 +12,7 @@ const Calendar = () => {
 
   while (aux.isBefore(end)) {
     const date = aux.toDate();
-    hours.push({ date, key: date.getTime(), formatted: aux.format('hh:mm'), ampm: aux.format('A') })
+    hours.push({ date, key: date.getTime(), formatted: aux.format('h:mm'), ampm: aux.format('A') })
     aux.add(1, 'hour');
   }
 
