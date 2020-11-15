@@ -12,8 +12,8 @@ const Hour = ({ date, formatted, ampm, events }) => {
         { half }
       </div>
 
-      { events.map(({ name, start, end, conflicting }) => (
-        <Event key={name} name={name} start={start} end={end} conflicting={conflicting}/>)
+      { events.map(({ name, start, end, overlapping }) => (
+        <Event key={name} name={name} start={start} end={end} overlapping={overlapping}/>)
       )}
     </div>
   )
