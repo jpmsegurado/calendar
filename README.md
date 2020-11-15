@@ -13,3 +13,5 @@ You can see the demo of the solution [here](https://hopeful-austin-eeb823.netlif
 # Observations
 
 In the figma project, we can see that the last event `Meeting with Alejandro` is 30 minutes long and has 38px height, but each hour has 30px. I decided to use the event as a reference so each hour has 76px height, and the event would fit half of the hour.
+
+Decided to use `moment` to help dealing with dates.
